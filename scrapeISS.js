@@ -19,8 +19,8 @@ async function formatTableData() {
 
     //get the other rows
     const dataRows = Array.from(tableElem.querySelectorAll('tr'))
-        .map(x => x.textContent.replace('\t', '').split('\n').filter(x => x !== '').splice(0, 5));
-    const dataSansHeaders = dataRows.splice(1, dataRows.length);
+        .map(x => x.textContent.replace("\t", "").split('\n').filter(x => x !== '').splice(0, 5));
+    const dataSansHeaders = dataRows.splice(1, dataRows.length).map(x => x.map(str => str.replace("\t", "")));
     
     return {
         headers: headers,
