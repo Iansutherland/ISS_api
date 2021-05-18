@@ -6,4 +6,4 @@ COPY . /app
 
 WORKDIR /app
 
-CMD node ./scrapeISS.js
+CMD node ./scraper/scrapeISS.js
