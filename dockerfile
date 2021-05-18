@@ -6,4 +6,6 @@ COPY . /app
 
 WORKDIR /app
 
-CMD node ./scraper/scrapeISS.js
+RUN npm install
+
+CMD node ./scrapeISS.js
