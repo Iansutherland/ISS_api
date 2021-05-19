@@ -2,7 +2,6 @@
   "name": "internationSpaceStation",
   "version": "1.0.0",
   "description": "",
-  "main": "scrapeISS.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
-    "jsdom": "^16.5.3"
+    "express": "^4.17.1",
+    "jsdom": "^16.5.3",
+    "mysql": "^2.18.1"
   }
 }
