@@ -2,12 +2,14 @@
 
 FROM node:current-alpine3.13
 
-COPY ../ /app/
+RUN apk update && apk upgrade && apk add git
+
+RUN mkdir /app
 
 WORKDIR /app
 
+RUN git clone https://github.com/Iansutherland/ISS_api.git .
+
 RUN npm install
 
-CMD cat package.json
-
-#node ./scrapeISS.js
+CMD node ./scraper/scrapeISS.js

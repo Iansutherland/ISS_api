@@ -14,18 +14,22 @@ async function formatTableData() {
     const firstRow = tableElem.querySelector('tr');
     const headers = firstRow.textContent.trim().split('\n\t');
 
-    //get rid of 'shar event' column used for social media links
+    //get rid of 'share event' column used for social media links
     headers.pop(-1);
 
     //get the other rows
     const dataRows = Array.from(tableElem.querySelectorAll('tr'))
         .map(x => x.textContent.replace("\t", "").split('\n').filter(x => x !== '').splice(0, 5));
     const dataSansHeaders = dataRows.splice(1, dataRows.length).map(x => x.map(str => str.replace("\t", "")));
+
+    const resultArray = [];
+    const result = {};
+    dataSansHeaders.map(row => {
+        row.map((cell, index) => result[headers[index]] = cell)
+        resultArray.push(result);
+    })
     
-    return {
-        headers: headers,
-        data: dataSansHeaders
-    }
+    return resultArray;
 }
 
 async function callApi() {
